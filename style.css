@@ -1,0 +1,220 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+html, body {
+  overflow: hidden;
+}
+
+body {
+  background-image: url("assets/binary.gif");
+  font-family: 'Droid Sans Mono', sans-serif;
+}
+
+#pop-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 78vh;
+  left: 25vw;
+  width: 50vw;
+  height: 10vh;
+  background: white;
+  border: solid 0.125em lightgrey;
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
+  transform: scale(0);
+  -webkit-animation: pop-up 0.2s 2s;
+          animation: pop-up 0.2s 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: cubic-bezier(1, 0.3, 0.5, 1.3);
+          animation-timing-function: cubic-bezier(1, 0.3, 0.5, 1.3);
+}
+#pop-up:target {
+  -webkit-animation: pop-down 0.075s;
+          animation: pop-down 0.075s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+a[href="#pop-up"] {
+  text-decoration: none;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0.75em 1.5em;
+  font-size: 2em;
+  color: white;
+  background: #ee1d25;
+  border-radius: 5px;
+}
+a[href="#pop-up"]:hover,
+a[href="#pop-up"]:focus {
+  background: #f0353c;
+}
+a[href="#pop-up"]:active {
+  background: #c90f16;
+}
+a[href="#pop-up"]:after {
+  content: '×';
+  position: absolute;
+  top: 0.125em;
+  right: 0.125em;
+  font-size: 2em;
+  line-height: 0.45;
+  color: #231a16;
+  transition: color 0.35s;
+}
+@-webkit-keyframes pop-up {
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes pop-up {
+  to {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes pop-down {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+@keyframes pop-down {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+.wrapper {
+  width: 750px;
+  height: 560px;
+  margin: -280px 0 0 -375px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content::after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  margin: 35px auto 15px;
+}
+
+.box1, .box2 {
+  float: left;
+  width: 50%;
+  line-height: 1.5;
+}
+.box1 .io, .box2 .io {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px 10px 30px 20px;
+  height: 450px;
+  display: block;
+  outline: none;
+  overflow-y: scroll;
+  margin: 0 10px;
+  -webkit-mask: -webkit-linear-gradient(top, transparent 0px, black 30px, black 50%, transparent 100%), -webkit-linear-gradient(bottom, transparent 0px, black 30px, black 50%, transparent 100%);
+}
+
+.box1 .io::-webkit-scrollbar, .box2 .io::-webkit-scrollbar {
+  width: 5px;
+}
+
+.box1 .io::-webkit-scrollbar-thumb, .box2 .io::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+}
+
+.box1:after, .box2:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.box1 {
+  background-color: green;
+  color: white;
+  font-size: 16px;
+  border-radius: 3px 0 0 3px;
+}
+
+.box1 .square svg {
+  width: 44px;
+  height: 40px;
+  position: relative;
+  left: 8px;
+  top: 8px;
+}
+
+.box1 .square svg .f {
+  stroke: #ccc;
+  stroke-width: 3px;
+  fill: none;
+}
+
+.box1 .io::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.box2 {
+  background-color: #1a1a1a;
+  color: #00FF99;
+  border-radius: 0 3px 3px 0;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 0 0 10px rgba(0, 255, 153, 0.5);
+}
+
+.box2 .square svg {
+  width: 54px;
+  height: 57px;
+  position: relative;
+  left: 2px;
+  top: 1px;
+}
+
+.box2 .square svg .signal {
+  fill: rgba(0, 255, 153, 0.2);
+}
+.box2 .fsquare.active .signal {
+  fill: #00ff99;
+}
+
+
+.box2 .io {
+  font-size: 15px;
+}
+.box2 .io::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+header {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 2px 0 black;
+  margin-bottom: 15px;
+}
+
+footer {
+  font-size: 11px;
+  color: white;
+  text-shadow: 0 2px 0 black;
+  margin-top: 15px;
+}
+
